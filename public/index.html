@@ -11,8 +11,81 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
   </head>
   <body>
+    <div class="nav-wrapper">
+      <nav class="nav">
+        <h1 class="nav-title">Podcast Player</h1>
+        <i class="fas fa-microphone-alt"></i>
+
+        <div class="nav-list">
+          <span id="search-link" class="selected">Search</span>
+          <span id="listen-link">Listen</span>
+        </div>
+      </nav>
+    </div>
+    <div class="page-wrapper">
+      <div class="search-container">
+        <div class="custom-select">
+          <select
+            name="search-history"
+            id="search-history"
+            title="Search History"
+          >
+            <option value="">Select a previous search</option>
+          </select>
+        </div>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search by podcast / topic"
+        />
+        <div class="search-buttons">
+          <button type="button" id="search-button">Search</button>
+          <button type="button" id="reset-button">Clear History</button>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div id="loader" class="loader-container">
+          <i class="fas fa-microphone-alt"></i>
+        </div>
+
+        <div id="cards-container" class="cards-container"></div>
+      </div>
+
+      <div class="player-container">
+        <div class="player">
+          <!-- Song -->
+          <div class="img-container">
+            <img id="image" src="./default-podcast.png" alt="Podcast Image" />
+          </div>
+          <div class="title-container">
+            <h2 id="title">Podcast Title</h2>
+            <h3 id="date-published">Date Published</h3>
+          </div>
+          <audio id="player" src=""></audio>
+          <div class="controls-container">
+            <!-- Progress -->
+            <div class="progress-container" id="progress-container">
+              <div class="progress" id="progress"></div>
+              <div class="duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+            </div>
+            <!-- Controls -->
+            <div class="player-controls">
+              <i class="fas fa-backward" id="prev" title="-15 seconds"></i>
+              <i class="fas fa-play main-button" id="play" title="Play"></i>
+              <i class="fas fa-forward" id="next" title="+30 seconds"></i>
+            </div>
+          </div>
+        </div>
+        <div class="queue-container"></div>
+      </div>
+    </div>
     <!-- Script -->
     <script src="script.js"></script>
   </body>
